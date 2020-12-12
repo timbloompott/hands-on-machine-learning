@@ -75,4 +75,7 @@ Vagrant.configure("2") do |config|
    	apt-get install -y python3-pip
    	pip3 install jupyter matplotlib numpy pandas scipy scikit-learn
    SHELL
+
+  # Add Firefox
+  config.vm.provision :shell, inline: "sudo apt install -y firefox"
 end
