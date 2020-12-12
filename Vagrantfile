@@ -76,6 +76,12 @@ Vagrant.configure("2") do |config|
    	pip3 install jupyter matplotlib numpy pandas scipy scikit-learn
    SHELL
 
+  # Add desktop environment
+  config.vm.provision :shell, inline: "sudo apt install -y --no-install-recommends ubuntu-desktop"
+  config.vm.provision :shell, inline: "sudo apt install -y --no-install-recommends virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11"
+  # Add `vagrant` to Administrator
+  config.vm.provision :shell, inline: "sudo usermod -a -G sudo vagrant"
+
   # Add Firefox
   config.vm.provision :shell, inline: "sudo apt install -y firefox"
 end
