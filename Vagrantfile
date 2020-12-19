@@ -53,10 +53,14 @@ Vagrant.configure("2") do |config|
      # Display the VirtualBox GUI when booting the machine
      vb.gui = true
   #
-  #   # Customize the amount of memory on the VM:
+	 # Customize the amount of memory on the VM:
      vb.memory = "4096"
+
+     # Customize the number of CPU cores on the VM:
+     # from https://www.vagrantup.com/docs/providers/virtualbox/configuration
+     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
    end
-  #
+
   # View the documentation for the provider you are using for more
   # information on available options.
 
